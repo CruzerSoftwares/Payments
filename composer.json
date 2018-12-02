@@ -1,0 +1,39 @@
+{
+    "name": "cruzer/payments/coinpayments",
+    "type": "library",
+    "description": "CoinPayments API wrapper with easy to use APIs",
+    "keywords": [
+        "CoinPayments",
+        "cryptocurrency",
+        "crypto",
+        "payment gateway",
+        "payment method",
+        "payment processor",
+        "merchant",
+        "paypal",
+        "bitcoin",
+        "litecoin",
+        "ethereum",
+        "php",
+        "api",
+        "btc",
+        "currency"
+    ],
+    "homepage": "https://github.com/CruzerSoftwares/payments/CoinPayments",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RN Kushwaha",
+            "email": "rn.kushwaha022@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "coinpaymentsnet/coinpayments-php": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cruzer\\Payments\\": "src/"
+        }
+    }
+}
