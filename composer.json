@@ -1,5 +1,5 @@
 {
-    "name": "cruzer/payments/coinpayments",
+    "name": "cruzer/payments",
     "type": "library",
     "description": "CoinPayments API wrapper with easy to use APIs",
     "keywords": [
@@ -33,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cruzer\\Payments\\": "src/"
+            "Cruzer\\": "src/"
         }
     }
 }
