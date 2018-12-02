@@ -2,6 +2,8 @@
 
 namespace Cruzer\Payments\CoinPayments;
 
+use Cruzer\Payments\CoinPayments\CoinpaymentsAPI;
+
 /**
  * This class handles transaction
  * @author RN Kushwaha <Rn.kushwaha022@gmail.com>
@@ -15,7 +17,7 @@ class Handler extends CoinpaymentsAPI{
     private $format;
     private $api;
 
-    public function __construct() {
+    public function __construct($private_key, $public_key, $format) {
         $this->api     = new CoinpaymentsAPI($private_key, $public_key, $format);
     }
 
