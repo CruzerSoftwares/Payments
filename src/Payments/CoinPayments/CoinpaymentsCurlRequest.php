@@ -3,7 +3,6 @@
 namespace Cruzer\Payments\CoinPayments;
 
 use Cruzer\Payments\CoinPayments\CoinpaymentsValidator;
-// require('CoinpaymentsValidator.php');
 
 class CoinpaymentsCurlRequest
 {

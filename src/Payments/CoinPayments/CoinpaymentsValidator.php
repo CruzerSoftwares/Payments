@@ -1,5 +1,7 @@
 <?php
+
 namespace Cruzer\Payments\CoinPayments;
+
 /**
  * Class CoinpaymentsValidator
  *
@@ -330,15 +332,15 @@ class CoinpaymentsValidator
                     if ($valid_fields === TRUE) {
                         return TRUE;
                     } else {
-                        throw new Exception($valid_fields);
+                        throw new \Exception($valid_fields);
                     }
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     return 'Error: ' . $e->getMessage();
                 }
             } else {
-                throw new Exception('Invalid command name!');
+                throw new \Exception('Invalid command name!');
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return 'Error: ' . $e->getMessage();
         }
     }
@@ -357,7 +359,7 @@ class CoinpaymentsValidator
             if (array_key_exists($this->command, $this->commands_reference)) {
                 return TRUE;
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return 'Error: ' . $e->getMessage();
         }
     }
@@ -394,7 +396,7 @@ class CoinpaymentsValidator
 
             // Throw an error if an invalid field was passed
             if (!in_array($field_key, $accepted_fields)) {
-                throw new Exception('The field "' . $field_key . '" was passed but is not a valid field for the "' . $this->command . '" command!');
+                throw new \Exception('The field "' . $field_key . '" was passed but is not a valid field for the "' . $this->command . '" command!');
             }
         }
 
@@ -402,12 +404,12 @@ class CoinpaymentsValidator
         if (array_key_exists('required', $this->commands_reference[$this->command])) {
             foreach ($this->commands_reference[$this->command]['required'] as $required_field_key => $required_field_value) {
                 if (!array_key_exists($required_field_key, $this->fields)) {
-                    throw new Exception('The required field "' . $required_field_key . '" was not passed!');
+                    throw new \Exception('The required field "' . $required_field_key . '" was not passed!');
                 } else {
                     $field_type = $this->commands_reference[$this->command]['required'][$required_field_key]['type'];
                     $is_valid_type = $this->validateFieldType($required_field_key, $this->fields[$required_field_key], $field_type, 'required');
                     if ($is_valid_type != TRUE) {
-                        throw new Exception($is_valid_type);
+                        throw new \Exception($is_valid_type);
                     }
                 }
             }
@@ -437,14 +439,14 @@ class CoinpaymentsValidator
 
             // Throw an error if less than or more than 1 field was passed
             if ($count_one_of < 1) {
-                throw new Exception('At least one of the following fields must be passed: [ ' . $expected_one_of_message . ' ]');
+                throw new \Exception('At least one of the following fields must be passed: [ ' . $expected_one_of_message . ' ]');
             } elseif ($count_one_of > 1) {
-                throw new Exception('No more than one of the following fields can be passed: [ ' . $expected_one_of_message . ' ]');
+                throw new \Exception('No more than one of the following fields can be passed: [ ' . $expected_one_of_message . ' ]');
             } else {
                 $field_type = $this->commands_reference[$this->command]['one_of'][$one_of_field_key]['type'];
                 $is_valid_type = $this->validateFieldType($one_of_field_key, $this->fields[$passed_one_of_key], $field_type, 'one_of');
                 if ($is_valid_type != TRUE) {
-                    throw new Exception($is_valid_type);
+                    throw new \Exception($is_valid_type);
                 }
             }
         }
@@ -465,7 +467,7 @@ class CoinpaymentsValidator
                 $field_type = $this->commands_reference[$this->command]['optional'][$optional_field]['type'];
                 $is_valid_type = $this->validateFieldType($optional_field, $this->fields[$optional_field], $field_type, 'optional');
                 if ($is_valid_type != TRUE) {
-                    throw new Exception($is_valid_type);
+                    throw new \Exception($is_valid_type);
                 }
             }
         }
@@ -514,7 +516,7 @@ class CoinpaymentsValidator
                 }
                 break;
             default:
-                throw new Exception('Expected type "' . $expected_type . '" is not valid for the given command.');
+                throw new \Exception('Expected type "' . $expected_type . '" is not valid for the given command.');
         }
 
         if (is_array($field_value)) {
@@ -522,14 +524,14 @@ class CoinpaymentsValidator
         }
 
         if ($actual_type != FALSE) {
-            throw new Exception('Field "' . $field_key . '" passed with value of "' . $field_value . '" and data type of "' . $actual_type . '", but expected type is "' . $expected_type . '".');
+            throw new \Exception('Field "' . $field_key . '" passed with value of "' . $field_value . '" and data type of "' . $actual_type . '", but expected type is "' . $expected_type . '".');
         }
 
         if (array_key_exists('permitted', $this->commands_reference[$this->command][$field_group][$field_key])) {
             $permitted_check = $this->validateFieldPermittedValue($field_value, $this->commands_reference[$this->command][$field_group][$field_key]['permitted']);
             if (!$permitted_check) {
                 $permitted_message = implode(' | ', $this->commands_reference[$this->command][$field_group][$field_key]['permitted']);
-                throw new Exception('Permitted values for the field "' . $field_key . '" are [ ' . $permitted_message . ' ] but the value passed was: ' . $field_value);
+                throw new \Exception('Permitted values for the field "' . $field_key . '" are [ ' . $permitted_message . ' ] but the value passed was: ' . $field_value);
             }
         }
         return TRUE;

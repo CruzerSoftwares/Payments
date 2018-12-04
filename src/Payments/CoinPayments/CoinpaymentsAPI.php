@@ -2,7 +2,7 @@
 
 namespace Cruzer\Payments\CoinPayments;
 
-require('CoinpaymentsCurlRequest.php');
+use Cruzer\Payments\CoinPayments\CoinpaymentsCurlRequest;
 
 /**
  * CoinPayments.net PHP API Wrapper
@@ -52,9 +52,9 @@ class CoinpaymentsAPI
         // Throw an error if the keys are not both passed
         try {
             if (empty($this->private_key) || empty($this->public_key)) {
-                throw new Exception("Your private and public keys are not both set!");
+                throw new \Exception("Your private and public keys are not both set!");
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo 'Error: ' . $e->getMessage();
         }
 
