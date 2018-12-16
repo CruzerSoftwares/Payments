@@ -1,8 +1,8 @@
 <?php
 
-namespace Cruzer\Payments\CoinPayments;
+namespace Cruzer\Payments;
 
-use Cruzer\Payments\CoinPayments\CoinpaymentsCurlRequest;
+use Cruzer\Payments\CoinpaymentsCurlRequest;
 
 /**
  * CoinPayments.net PHP API Wrapper

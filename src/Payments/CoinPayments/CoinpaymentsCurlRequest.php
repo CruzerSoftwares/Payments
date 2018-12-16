@@ -1,8 +1,8 @@
 <?php
 
-namespace Cruzer\Payments\CoinPayments;
+namespace Cruzer\Payments;
 
-use Cruzer\Payments\CoinPayments\CoinpaymentsValidator;
+use Cruzer\Payments\CoinpaymentsValidator;
 
 class CoinpaymentsCurlRequest
 {

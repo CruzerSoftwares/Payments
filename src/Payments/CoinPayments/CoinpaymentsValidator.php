@@ -1,6 +1,6 @@
 <?php
 
-namespace Cruzer\Payments\CoinPayments;
+namespace Cruzer\Payments;
 
 /**
  * Class CoinpaymentsValidator

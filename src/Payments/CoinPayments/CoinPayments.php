@@ -1,8 +1,8 @@
 <?php
 
-namespace Cruzer\Payments\CoinPayments;
+namespace Cruzer\Payments;
 
-use Cruzer\Payments\CoinPayments\CoinpaymentsAPI;
+use Cruzer\Payments\CoinpaymentsAPI;
 
 /**
  * This class handles transaction Creation and other commands
@@ -11,7 +11,7 @@ use Cruzer\Payments\CoinPayments\CoinpaymentsAPI;
  * @since version 1.0.0. Date: 2nd Dec, 2018
  */
 
-class Handler extends CoinpaymentsAPI{
+class CoinPayments extends CoinpaymentsAPI{
 
     private $private_key;
     private $public_key;

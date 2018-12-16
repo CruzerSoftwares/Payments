@@ -9,10 +9,10 @@ namespace Cruzer\Payments;
  * @since version 1.0.0. Date: 2nd Dec, 2018
  */
 
-class Payeer extends PayeerAPI{
+class PerfectMoney{
     private $api;
 
-    // Create an api instance of Payeer
+    // Create an api instance of PerfectMoney
     public function __construct($private_key, $public_key, $format) {
         $this->api = new PayeerAPI();
     }
